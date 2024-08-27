@@ -4,7 +4,6 @@ public record PostCreateRequest(
         String category,
         String title,
         String author,
-
         String content
 ) {
 }

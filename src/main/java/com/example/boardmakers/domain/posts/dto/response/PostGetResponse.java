@@ -10,6 +10,7 @@ public record PostGetResponse(
         String content
 ) {
     public static PostGetResponse from(final Post post) {
+        System.out.println("Transforming Post to PostGetDetailResponse: " + post);
         return PostGetResponse.builder()
                 .category(post.getCategory())
                 .content(post.getContent())

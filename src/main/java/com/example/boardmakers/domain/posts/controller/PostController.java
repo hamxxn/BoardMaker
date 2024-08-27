@@ -1,7 +1,6 @@
 package com.example.boardmakers.domain.posts.controller;
 
 import com.example.boardmakers.domain.posts.dto.request.PostCreateRequest;
-import com.example.boardmakers.domain.posts.dto.response.PostGetDetailResponse;
 import com.example.boardmakers.domain.posts.dto.response.PostGetResponse;
 import com.example.boardmakers.domain.posts.entity.Post;
 import com.example.boardmakers.domain.posts.service.PostService;
@@ -11,15 +10,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class PostingController {
+public class PostController {
     private  final PostService postingService;
-    public PostingController(PostService postingService){
+    public PostController(PostService postingService){
         this.postingService=postingService;
     }
 
     @GetMapping("/postings/{author}")
     public ResponseEntity<List<PostGetResponse>> getPosts(
-            @PathVariable String author){
+            @PathVariable String author
+    ){
         List<PostGetResponse> postings=postingService.getPosts(author);
         return ResponseEntity.ok(postings);
     }
